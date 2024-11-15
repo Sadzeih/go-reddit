@@ -530,7 +530,13 @@ type Post struct {
 
 	Title string `json:"title,omitempty"`
 	Body  string `json:"selftext,omitempty"`
-	Flair string `json:"link_flair_text,omitempty"`
+
+	Flair                 string  `json:"link_flair_text,omitempty"`
+	FlairTemplateID       *string `json:"link_flair_template_id,omitempty"`
+	FlairCSSClass         *string `json:"link_flair_css_class"`
+	AuthorFlair           *string `json:"author_flair_text"`
+	AuthorFlairTemplateID *string `json:"author_flair_template_id"`
+	AuthorFlairCSSClass   *string `json:"author_flair_css_class"`
 
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
@@ -548,12 +554,26 @@ type Post struct {
 	Author   string `json:"author,omitempty"`
 	AuthorID string `json:"author_fullname,omitempty"`
 
-	Spoiler    bool `json:"spoiler"`
-	Locked     bool `json:"locked"`
-	NSFW       bool `json:"over_18"`
-	IsSelfPost bool `json:"is_self"`
-	Saved      bool `json:"saved"`
-	Stickied   bool `json:"stickied"`
+	Spoiler         bool  `json:"spoiler"`
+	Locked          bool  `json:"locked"`
+	NSFW            bool  `json:"over_18"`
+	IsSelfPost      bool  `json:"is_self"`
+	Saved           bool  `json:"saved"`
+	Stickied        bool  `json:"stickied"`
+	Archived        bool  `json:"archived"`
+	IsCrosspostable bool  `json:"is_crosspostable"`
+	Spam            *bool `json:"spam,omitempty"`
+
+	CanModPost    bool    `json:"can_mod_post"`
+	Distinguished *string `json:"distinguished"`
+
+	Approved      *bool   `json:"approved,omitempty"`
+	ApprovedBy    *string `json:"approved_by"`
+	ApprovedAtUTC *int64  `json:"approved_at_utc"`
+
+	Removed     *bool   `json:"removed,omitempty"`
+	RemovedBy   *string `json:"removed_by"`
+	ModReasonBy *string `json:"mod_reason_by"`
 }
 
 // Subreddit holds information about a subreddit

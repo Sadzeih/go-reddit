@@ -1,4 +1,4 @@
-ROOT_PKG ?= "github.com/vartanbeno/go-reddit"
+ROOT_PKG ?= "github.com/Sadzeih/go-reddit"
 LIST_PKG := $(shell go list $(ROOT_PKG)/...)
 
 # Tests
